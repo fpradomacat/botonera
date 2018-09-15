@@ -1,50 +1,65 @@
 import { Component, OnInit } from '@angular/core';
+import { ListaAudiosService } from './home.service';
 
 @Component({
   selector: 'btn-a8-home',
+  host: { '(keyup)': 'hotkeys($event)'},
   templateUrl: 'home.component.html',
+  styleUrls: ['./home.component.scss']
 })
+
 export class HomeComponent {
 
+  version: string = 'v1.130';
   audio = new Audio();
 
-  private SOUNDS = {
-    'tabamoTomando': 'estabamoTomando',
-    'tramboliko': 'tramboliko',
-    'volo': 'volo',
-    'gemido': 'gemido',
-    'sonRibukOSonNaik': 'esaSonRibuOSonNai',
-    'helloWeynes': 'helloWeynes',
-    'seraEsta': 'seraEstaBrother',
-    'taMuyPegaa': 'taMuiPegaaEsaCancion',
-    'brea': 'yBuenoBrea',
-    'ledijeNo':'ledijequeNo',
-    'mesobra':'mesobra',
-    'servicio':'servicio',
-    'activoPasivo':'activoPasivo',
-    'peamoa':'peamoa',
-    'forinia':'forinia',
-    'sosunbandido':'sosunbandido',
-    'endu_elotroestabaasi':'endu_elotroestabaasi',
-    'endu_paaa':'endu_paaa',
-    'endu_susurros':'endu_susurros',
-    'endu_endu':'endu_endu',
-    'endu_aceleradaendu':'endu_aceleradaendu',
-    'endu_escuchabaelbam':'endu_escuchabaelbam',
-    'endu_carrera':'endu_carrera',
-    'endu_aparentemente':'endu_aparentemente'
+  public hotKeys = { };
+  public combinedHotKeys = { };
 
-  };
+  public listaLocoEndu = [];
+  public travas = [];
+  public ronnieColeman = [];
+  public clasicos = [];
+  public futbol = [];
+  public varios = [];
 
-  public play(sound): void {
-    console.log(sound);
-    this.audio.src = `../assets/audio/${this.SOUNDS[sound]}.mp3`;
-    this.audio.load();
-    this.audio.play();
+  constructor(private sonidosService: ListaAudiosService) {
+    this.obtenerListasAudio();
+    this.hotKeys = this.sonidosService.getObjetoHotKeys();
+    this.combinedHotKeys = this.sonidosService.getObjetoHotKeysCombinadas();
+  }
+
+  obtenerListasAudio(){
+    this.listaLocoEndu = this.sonidosService.getListaLocoEndu();
+    this.travas = this.sonidosService.getListaTravas();
+    this.ronnieColeman = this.sonidosService.getListaRonnieColeman();
+    this.clasicos = this.sonidosService.getListaClasicos();
+    this.futbol = this.sonidosService.getListaFutbol();
+    this.varios = this.sonidosService.getListaVarios();
+  }
+
+  public play(src): void {
+    if(src != 'undefined'){
+        this.audio.src = '../assets/audio/'+ src +'.mp3';
+        this.audio.load();
+        this.audio.play();
+      }
   }
 
   public stop(): void {
     this.audio.pause();
   }
 
+  hotkeys($event) {
+    if ($event.keyCode == 16) {
+      this.stop();
+    } else {
+      if ($event.keyCode && $event.ctrlKey) {
+        this.play(`${this.combinedHotKeys[$event.keyCode]}`);
+        return true;
+      }
+      this.play(`${this.hotKeys[$event.keyCode]}`);
+    }
+    return true;
+  }
 }

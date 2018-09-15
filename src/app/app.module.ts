@@ -4,7 +4,9 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { APP_ROUTING } from "./app.routes";
+
 import { HomeComponent } from "./components/home/home.component";
+import { ListaAudiosService } from './components/home/home.service';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,7 @@ import { HomeComponent } from "./components/home/home.component";
     HttpModule,
     APP_ROUTING
   ],
-  providers: [],
+  providers: [ListaAudiosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
