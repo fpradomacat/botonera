@@ -10,18 +10,15 @@ import { ListaAudiosService } from './home.service';
 
 export class HomeComponent {
 
-  version: string = 'v1.130';
+  version: string = '1.1/3.x.@f.24-RELEASE';
   audio = new Audio();
 
   public hotKeys = { };
   public combinedHotKeys = { };
 
-  public listaLocoEndu = [];
-  public travas = [];
-  public ronnieColeman = [];
+  public listaESolutions = [];
   public clasicos = [];
-  public futbol = [];
-  public varios = [];
+  public biancho = [];
 
   constructor(private sonidosService: ListaAudiosService) {
     this.obtenerListasAudio();
@@ -30,12 +27,9 @@ export class HomeComponent {
   }
 
   obtenerListasAudio(){
-    this.listaLocoEndu = this.sonidosService.getListaLocoEndu();
-    this.travas = this.sonidosService.getListaTravas();
-    this.ronnieColeman = this.sonidosService.getListaRonnieColeman();
+	this.listaESolutions = this.sonidosService.getListaESolutions();
     this.clasicos = this.sonidosService.getListaClasicos();
-    this.futbol = this.sonidosService.getListaFutbol();
-    this.varios = this.sonidosService.getListaVarios();
+	this.biancho = this.sonidosService.getListaBiancho();
   }
 
   public play(src): void {

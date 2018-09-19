@@ -2,10 +2,10 @@
     @import url('https://fonts.googleapis.com/css?family=Libre+Barcode+39+Text|Monoton|Press+Start+2P|Zilla+Slab+Highlight');
 </style>
 <div>
-    <h1 class="text-center" style="font-family: 'Press Start 2P', cursive; margin-top: 1em">BOTONERA MEDIA PLAYER {{version}}</h1>
+    <h1 class="text-center" style="font-family: 'Press Start 2P', cursive; margin-top: 1em">BOTONERA CORPO {{version}}</h1>
     <h3 class="text-center" style="font-family: 'Zilla Slab Highlight', cursive; margin-top: 0.5em">Clone or download</h3>
     <p class="text-center repo-url">
-        <strong>https://github.com/santifonzalida/botoneraA8.git</strong>
+        <strong>https://github.com/federxs/botoneraA8</strong>
     </p>
 </div>
 
@@ -28,9 +28,27 @@
 
     <div class="row section-container">
         <div class="col-12">
-            <h3>Loco Endú</h3> <small>Fila letra "A"</small>
+            <h3>ESolutions</h3> <small>Fila letra "A"</small>
         </div>
-        <div class="col-12 col-sm-6 col-md-4 col-xl-2" *ngFor="let item of listaLocoEndu">
+        <div class="col-12 col-sm-6 col-md-4 col-xl-2" *ngFor="let item of listaESolutions">
+            <div class="card-holder">
+                <div class="icon-holder d-flex align-items-center">
+                    <div class="button-container" (click)="play(item.src)">
+                        <div class="d-flex align-items-center justify-content-center play-button">PLAY</div>
+                    </div>
+                </div>
+                <div class="text-holder d-flex align-items-center justify-content-center">
+                    <p class="text-center">{{item.displayName}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+	<div class="row section-container">
+        <div class="col-12">
+            <h3>Biancho</h3> <small>Fila letra "Z"</small>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-xl-2" *ngFor="let item of biancho">
             <div class="card-holder">
                 <div class="icon-holder d-flex align-items-center">
                     <div class="button-container" (click)="play(item.src)">
@@ -46,43 +64,7 @@
 
     <div class="row section-container">
         <div class="col-12">
-            <h3>Trabas</h3><small>Fila letra "W"</small>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-xl-2" *ngFor="let item of travas">
-            <div class="card-holder">
-                <div class="icon-holder d-flex align-items-center">
-                    <div class="button-container" (click)="play(item.src)">
-                        <div class="d-flex align-items-center justify-content-center play-button">PLAY</div>
-                    </div>
-                </div>
-                <div class="text-holder d-flex align-items-center justify-content-center">
-                    <p class="text-center">{{item.displayName}}</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row section-container">
-        <div class="col-12">
-            <h3>Ronnie Coleman</h3><small>Teclado Numérico</small>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-xl-2" *ngFor="let item of ronnieColeman">
-            <div class="card-holder">
-                <div class="icon-holder d-flex align-items-center">
-                    <div class="button-container" (click)="play(item.src)">
-                        <div class="d-flex align-items-center justify-content-center play-button">PLAY</div>
-                    </div>
-                </div>
-                <div class="text-holder d-flex align-items-center justify-content-center">
-                    <p class="text-center">{{item.displayName}}</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row section-container">
-        <div class="col-12">
-            <h3>Clásicos</h3>
+            <h3>Clásicos</h3>  <small>Fila letra "W"</small>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-xl-2" *ngFor="let item of clasicos">
             <div class="card-holder">
@@ -98,41 +80,6 @@
         </div>
       </div>
 
-    <div class="row section-container">
-        <div class="col-12">
-            <h3>Varios</h3>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-xl-2" *ngFor="let item of varios">
-            <div class="card-holder">
-                <div class="icon-holder d-flex align-items-center">
-                    <div class="button-container" (click)="play(item.src)">
-                        <div class="d-flex align-items-center justify-content-center play-button">PLAY</div>
-                    </div>
-                </div>
-                <div class="text-holder d-flex align-items-center justify-content-center">
-                    <p class="text-center">{{item.displayName}}</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row section-container">
-        <div class="col-12">
-            <h3>Fútbol</h3>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-xl-2" *ngFor="let item of futbol">
-            <div class="card-holder">
-                <div class="icon-holder d-flex align-items-center">
-                    <div class="button-container" (click)="play(item.src)">
-                        <div class="d-flex align-items-center justify-content-center play-button">PLAY</div>
-                    </div>
-                </div>
-                <div class="text-holder d-flex align-items-center justify-content-center">
-                    <p class="text-center">{{item.displayName}}</p>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <div class="row justify-content-end">
         <h4 style="font-family: 'Libre Barcode 39 Text', cursive;">BOTONERAA8</h4>
