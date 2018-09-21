@@ -13,8 +13,7 @@ export class ListaAudiosService {
 	{displayName:'Caso cerrado 1!', src:'yvo_casocerrado'},
 	{displayName:'Caso cerrado 2!', src:'yvo_casocerrado1'},
 	{displayName:'He dicho!', src:'yvo_hedicho'},
-	{displayName:'Emmm', src:'adam_em'},
-	{displayName:'Eehh', src:'adam_eee'},
+	{displayName:'Votamos?', src:'votamos'},
 	{displayName:'Nadamá', src:'adam_nadama'},
 	{displayName:'Chauchiques', src:'adam_chau'}
   ];
@@ -40,6 +39,7 @@ export class ListaAudiosService {
 	{src: 'sabersubirybajar', displayName:'subí y bajá'},
     {src: 'cocosily', displayName:'iiihhh'},
     {src: 'delfin_nopuedeser', displayName:'No puede ser!'},
+	{src: 'ysihijo', displayName:'Y si hijo!'},
   ];
 
 /*
@@ -55,16 +55,16 @@ public hotKeys = {
   '85': 'sabersubirybajar',
   '73': 'cocosily',
   '79': 'delfin_nopuedeser',
+  '80': 'ysihijo',
   '65': 'marteeen',
   '83': 'invente',
   '68': 'inventeRoman',
   '70': 'yvo_casocerrado',
   '71': 'yvo_casocerrado1',
   '72': 'yvo_hedicho',
-  '74': 'adam_em',
-  '75': 'adam_eee',
-  '76': 'adam_nadama',
-  '192': 'adam_chau',
+  '74': 'votamos',
+  '75': 'adam_nadama',
+  '76': 'adam_chau',
   '90': 'agu_anoder_birdei',
   '88': 'agu_friendcito',
   '67': 'agu_friendcito1',
@@ -72,11 +72,16 @@ public hotKeys = {
   '66': 'agu_vida_de_mier',
   '78': 'agu_que_ganas',
   '77': 'agu_esta_rompido',
-  '188': 'agu_boludo'
+  '188': 'agu_boludo',
+  '97': 'adam_eee',
+  '98': 'adam_em',
+  '103': 'yvo_casocerrado2',
+  '104': 'votamos1',
+  '105': 'agu_ay_agustin1',
 };
 
  public combinedHotKeys = {
-  
+
 };
 
   public getObjetoHotKeys(){
