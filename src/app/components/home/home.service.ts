@@ -40,6 +40,10 @@ export class ListaAudiosService {
     {src: 'cocosily', displayName:'iiihhh'},
     {src: 'delfin_nopuedeser', displayName:'No puede ser!'},
 	{src: 'ysihijo', displayName:'Y si hijo!'},
+  {src: 'el-taco-no_ampli', displayName:'El taco no!'},
+  {src: 'relato-gol_ampli', displayName:'Relato 3-1'},
+  {src: 'river-3-boca-1_amplificado', displayName:'River 3-1 Boca'},
+  {src: 'va-el-tercero_loop', displayName:'Y va el tercero!'},
   ];
 
 /*
