@@ -1,15 +1,8 @@
 <style>
     @import url('https://fonts.googleapis.com/css?family=Libre+Barcode+39+Text|Monoton|Press+Start+2P|Zilla+Slab+Highlight');
 </style>
-<div>
-    <h1 class="text-center" style="font-family: 'Press Start 2P', cursive; margin-top: 1em">BOTONERA CORPO {{version}}</h1>
-    <h3 class="text-center" style="font-family: 'Zilla Slab Highlight', cursive; margin-top: 0.5em">Clone or download</h3>
-    <p class="text-center repo-url">
-        <strong>https://github.com/federxs/botoneraA8</strong>
-    </p>
-</div>
 
-<div class="container">
+<div class="header-container">
     <div class="row justify-content-center">
         <div class="col-12 col-md-10">
             <div class="warning-alert d-flex align-items-center mx-auto" (click)="stop()">
@@ -21,7 +14,7 @@
 </div>
 
 <button type="button" class="stop-button d-flex justify-content-center" (click)="stop()">
-    STOP
+    <span>STOP</span>
 </button>
 
 <div class="container" (window:keydown)="hotkeys($event)">
