@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ListaAudiosService } from './home.service';
 
 @Component({
-  selector: 'btn-a8-home',
-  host: { '(keyup)': 'hotkeys($event)'},
+  selector: 'app-home',
+  host: {'(keyup)': 'hotkeys($event)'},
   templateUrl: 'home.component.html',
   styleUrls: ['./home.component.scss']
 })
@@ -13,8 +13,8 @@ export class HomeComponent {
   version: string = '1.1/3.x.@f.24-RELEASE';
   audio = new Audio();
 
-  public hotKeys = { };
-  public combinedHotKeys = { };
+  public hotKeys = {};
+  public combinedHotKeys = {};
 
   public listaESolutions = [];
   public clasicos = [];
@@ -26,18 +26,18 @@ export class HomeComponent {
     this.combinedHotKeys = this.sonidosService.getObjetoHotKeysCombinadas();
   }
 
-  obtenerListasAudio(){
-	this.listaESolutions = this.sonidosService.getListaESolutions();
+  obtenerListasAudio() {
+    this.listaESolutions = this.sonidosService.getListaESolutions();
     this.clasicos = this.sonidosService.getListaClasicos();
-	this.biancho = this.sonidosService.getListaBiancho();
+    this.biancho = this.sonidosService.getListaBiancho();
   }
 
   public play(src): void {
-    if(src != 'undefined'){
-        this.audio.src = '../assets/audio/'+ src +'.mp3';
-        this.audio.load();
-        this.audio.play();
-      }
+    if (src != 'undefined') {
+      this.audio.src = '../assets/audio/' + src + '.mp3';
+      this.audio.load();
+      this.audio.play();
+    }
   }
 
   public stop(): void {
