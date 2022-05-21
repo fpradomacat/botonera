@@ -4,7 +4,7 @@ import { Sound } from '../classes/Sound';
 @Injectable()
 export class AudioListService {
 
-  eSolutions = [
+  private eSolutions = [
     new Sound('Marteeen', 'marteeen'),
     new Sound('Invente!', 'invente'),
     new Sound('Invente Román!', 'inventeRoman'),
@@ -16,7 +16,7 @@ export class AudioListService {
     new Sound('Chauchiques', 'adam_chau'),
   ];
 
-  biancho = [
+  private biancho = [
     new Sound('Anoder Birdei', 'agu_anoder_birdei'),
     new Sound('Friendcito1', 'agu_friendcito'),
     new Sound('Friendcito2', 'agu_friendcito1'),
@@ -27,7 +27,7 @@ export class AudioListService {
     new Sound('Boludo', 'agu_boludo'),
   ];
 
-  clasicos = [
+  private classics = [
     new Sound('gemido', 'gemido'),
     new Sound('choro_loreventas', 'lo reventas'),
     new Sound('choro_zapateas', 'lo zapateas'),
@@ -44,7 +44,7 @@ export class AudioListService {
     new Sound('va-el-tercero_loop', 'Y va el tercero!'),
   ];
 
-  public hotKeys = {
+  private _hotKeys = {
     '81': 'gemido',
     '87': 'choro_loreventas',
     '69': 'choro_zapateas',
@@ -79,25 +79,25 @@ export class AudioListService {
     '105': 'agu_ay_agustin1',
   };
 
-  public combinedHotKeys = {};
+  public _hotkeysWithCtrlPressed = {};
 
-  public getObjetoHotKeys() {
-    return this.hotKeys;
+  get hotkeys() {
+    return this._hotKeys;
   }
 
-  public getObjetoHotKeysCombinadas() {
-    return this.combinedHotKeys;
+  get hotkeysWithCtrlPressed() {
+    return this._hotkeysWithCtrlPressed;
   }
 
-  public getListaESolutions() {
+  get eSolutionsSounds() {
     return this.eSolutions;
   }
 
-  public getListaClasicos() {
-    return this.clasicos;
+  get classicsSounds() {
+    return this.classics;
   }
 
-  public getListaBiancho() {
+  get bianchoSounds() {
     return this.biancho;
   }
 

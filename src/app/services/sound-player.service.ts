@@ -8,13 +8,8 @@ export class SoundPlayerService {
   constructor() {
   }
 
-
-  public stopCurrentSound(): void {
-    this.audio.pause();
-  }
-
   public playSound(sound: Sound): void {
-    this.audio.src = '../../assets/audio/' + sound.source + '.mp3';
+    this.audio.src = sound.source;
     this.audio.load();
     this.audio.play();
   }
@@ -24,4 +19,9 @@ export class SoundPlayerService {
     this.audio.load();
     this.audio.play();
   }
+
+  public stopCurrentSound(): void {
+    this.audio.pause();
+  }
+
 }

@@ -8,51 +8,38 @@ import { SoundPlayerService } from '../../services/sound-player.service';
   styleUrls: ['./home.component.scss']
 })
 
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
-  public hotKeys = {};
-  public combinedHotKeys = {};
+  listaESolutions = this.sonidosService.eSolutionsSounds;
+  clasicos = this.sonidosService.classicsSounds;
+  biancho = this.sonidosService.bianchoSounds;
 
-  public listaESolutions = [];
-  public clasicos = [];
-  public biancho = [];
+  private hotKeys = this.sonidosService.hotkeys;
+  private combinedHotKeys = this.sonidosService.hotkeysWithCtrlPressed;
 
   constructor(private sonidosService: AudioListService,
               private soundPlayerService: SoundPlayerService) {
   }
 
-  ngOnInit() {
-    this.obtenerListasAudio();
-    this.hotKeys = this.sonidosService.getObjetoHotKeys();
-    this.combinedHotKeys = this.sonidosService.getObjetoHotKeysCombinadas();
-  }
-
-  obtenerListasAudio() {
-    this.listaESolutions = this.sonidosService.getListaESolutions();
-    this.clasicos = this.sonidosService.getListaClasicos();
-    this.biancho = this.sonidosService.getListaBiancho();
-  }
-
-  public play(src: string): void {
+  private playSoundBySource(src: string): void {
     this.soundPlayerService.playSoundBySource(src);
   }
 
-  public stop(): void {
+  public stopCurrentSound(): void {
     this.soundPlayerService.stopCurrentSound();
   }
 
   @HostListener('window:keydown', ['$event'])
   handleKeyPressed($event: KeyboardEvent) {
     if (this.isShiftKey($event)) {
-      this.stop();
+      this.stopCurrentSound();
     } else {
       if ($event.keyCode && $event.ctrlKey) {
-        this.play(`${this.combinedHotKeys[$event.keyCode]}`);
-        return true;
+        this.playSoundBySource(`${this.combinedHotKeys[$event.keyCode]}`);
+      } else {
+        this.playSoundBySource(`${this.hotKeys[$event.keyCode]}`);
       }
-      this.play(`${this.hotKeys[$event.keyCode]}`);
     }
-    return true;
   }
 
   private isShiftKey($event: KeyboardEvent): boolean {

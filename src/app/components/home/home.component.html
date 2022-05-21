@@ -1,7 +1,7 @@
 <div class="header-container">
   <div class="row justify-content-center">
     <div class="col-12 col-md-10">
-      <div class="warning-alert d-flex align-items-center mx-auto" (click)="stop()">
+      <div class="warning-alert d-flex align-items-center mx-auto" (click)="stopCurrentSound()">
         <span>i</span>
         <p>Atajo! Presionar tecla SHIFT para frenar audio</p>
       </div>
@@ -9,7 +9,7 @@
   </div>
 </div>
 
-<button type="button" class="stop-button d-flex justify-content-center" (click)="stop()">
+<button type="button" class="stop-button d-flex justify-content-center" (click)="stopCurrentSound()">
   <span>STOP</span>
 </button>
 
