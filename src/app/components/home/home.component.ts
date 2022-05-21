@@ -1,17 +1,14 @@
-import { Component } from '@angular/core';
-import { ListaAudiosService } from './home.service';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { AudioListService } from '../../services/audio-list.service';
+import { SoundPlayerService } from '../../services/sound-player.service';
 
 @Component({
   selector: 'app-home',
-  host: {'(keyup)': 'hotkeys($event)'},
   templateUrl: 'home.component.html',
   styleUrls: ['./home.component.scss']
 })
 
-export class HomeComponent {
-
-  version: string = '1.1/3.x.@f.24-RELEASE';
-  audio = new Audio();
+export class HomeComponent implements OnInit {
 
   public hotKeys = {};
   public combinedHotKeys = {};
@@ -20,7 +17,11 @@ export class HomeComponent {
   public clasicos = [];
   public biancho = [];
 
-  constructor(private sonidosService: ListaAudiosService) {
+  constructor(private sonidosService: AudioListService,
+              private soundPlayerService: SoundPlayerService) {
+  }
+
+  ngOnInit() {
     this.obtenerListasAudio();
     this.hotKeys = this.sonidosService.getObjetoHotKeys();
     this.combinedHotKeys = this.sonidosService.getObjetoHotKeysCombinadas();
@@ -32,20 +33,17 @@ export class HomeComponent {
     this.biancho = this.sonidosService.getListaBiancho();
   }
 
-  public play(src): void {
-    if (src != 'undefined') {
-      this.audio.src = '../assets/audio/' + src + '.mp3';
-      this.audio.load();
-      this.audio.play();
-    }
+  public play(src: string): void {
+    this.soundPlayerService.playSoundBySource(src);
   }
 
   public stop(): void {
-    this.audio.pause();
+    this.soundPlayerService.stopCurrentSound();
   }
 
-  hotkeys($event) {
-    if ($event.keyCode == 16) {
+  @HostListener('keyup')
+  handleKeyPressed($event: KeyboardEvent) {
+    if ($event.shiftKey) {
       this.stop();
     } else {
       if ($event.keyCode && $event.ctrlKey) {

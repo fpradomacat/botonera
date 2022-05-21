@@ -6,8 +6,9 @@ import { AppComponent } from './app.component';
 import { APP_ROUTING } from './app.routes';
 
 import { HomeComponent } from './components/home/home.component';
-import { ListaAudiosService } from './components/home/home.service';
 import { SoundCardComponent } from './components/shared/sound-card/sound-card.component';
+import { AudioListService } from './services/audio-list.service';
+import { SoundPlayerService } from './services/sound-player.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { SoundCardComponent } from './components/shared/sound-card/sound-card.co
     APP_ROUTING
   ],
   providers: [
-    ListaAudiosService
+    AudioListService,
+    SoundPlayerService
   ],
   bootstrap: [
     AppComponent

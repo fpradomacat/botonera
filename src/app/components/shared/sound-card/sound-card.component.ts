@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { SoundPlayerService } from '../../../services/sound-player.service';
+import { Sound } from '../../../classes/Sound';
 
 @Component({
   selector: 'app-sound-card',
@@ -8,18 +10,15 @@ import { Component, Input } from '@angular/core';
 export class SoundCardComponent {
 
   @Input()
-  sound: any;
+  sound: Sound;
   audio = new Audio();
 
-  constructor() {
+  constructor(private soundPlayerService: SoundPlayerService) {
   }
 
-  public play(src): void {
-    if (src != 'undefined') {
-      this.audio.src = '../assets/audio/' + src + '.mp3';
-      this.audio.load();
-      this.audio.play();
-    }
+  public play(sound: Sound): void {
+    this.soundPlayerService.playSound(sound);
+
   }
 
 }
