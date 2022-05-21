@@ -41,9 +41,9 @@ export class HomeComponent implements OnInit {
     this.soundPlayerService.stopCurrentSound();
   }
 
-  @HostListener('keyup')
+  @HostListener('window:keydown', ['$event'])
   handleKeyPressed($event: KeyboardEvent) {
-    if ($event.shiftKey) {
+    if (this.isShiftKey($event)) {
       this.stop();
     } else {
       if ($event.keyCode && $event.ctrlKey) {
@@ -53,5 +53,9 @@ export class HomeComponent implements OnInit {
       this.play(`${this.hotKeys[$event.keyCode]}`);
     }
     return true;
+  }
+
+  private isShiftKey($event: KeyboardEvent): boolean {
+    return ['ShiftLeft', 'ShiftRight'].includes($event.code);
   }
 }
