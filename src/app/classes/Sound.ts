@@ -2,16 +2,16 @@ import { Hotkey } from './Hotkey';
 
 export class Sound {
 
-  readonly _displayName: string;
   readonly _source: string;
+  readonly _displayName: string;
   readonly _hotkey: Hotkey;
 
-  constructor(_displayName: string,
-              _source: string,
+  constructor(_source: string,
+              _displayName: string,
               _keyCode: string = '',
               _isCtrlPressed: boolean = false) {
-    this._displayName = _displayName;
     this._source = _source;
+    this._displayName = _displayName;
     this._hotkey = {keyCode: _keyCode, isCtrlPressed: _isCtrlPressed};
   }
 
