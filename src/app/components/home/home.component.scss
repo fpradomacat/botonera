@@ -86,12 +86,6 @@
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
-    //&:hover,
-    //&:focus {
-    //    background: #CE372B;
-    //    box-shadow: inset 3px 3px 0px 0px #8C2022;
-    //    outline: none;
-    //}
     &:active {
         span {
           transform: translate(4px, 4px);
