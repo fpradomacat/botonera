@@ -24,11 +24,11 @@
     &:hover,
     &:focus {
         background: #00b8e6;
-        box-shadow: inset 3px 3px 0px 0px #007a99;
+        box-shadow: inset 3px 3px 0 0 #007a99;
         outline: none;
     }
     &:active {
-        box-shadow: inset 3px 3px 0px 0px #007a99;
+        box-shadow: inset 3px 3px 0 0 #007a99;
     }
     &:before,
     &:after{
@@ -58,7 +58,7 @@
     p{
         font-size: 14px;
         color: #fff;
-        margin-bottom: 0px;
+        margin-bottom: 0;
         line-height: 1.7;
     }
     span{
@@ -90,7 +90,7 @@
         span {
           transform: translate(4px, 4px);
         }
-        box-shadow: inset 3px 3px 0px 0px #8C2022;
+        box-shadow: inset 3px 3px 0 0 #8C2022;
     }
     &:before,
     &:after{
@@ -119,9 +119,9 @@
     background-color: #eee;
     border-radius: 2px;
     padding: 20px;
-    -webkit-box-shadow: 0px 1px 3px 0px rgba(85,84,89,.7);
-    -moz-box-shadow: 0px 1px 3px 0px rgba(85,84,89,.7);
-    box-shadow: 0px 1px 3px 0px rgba(85,84,89,.7);
+    -webkit-box-shadow: 0 1px 3px 0 rgba(85,84,89,.7);
+    -moz-box-shadow: 0 1px 3px 0 rgba(85,84,89,.7);
+    box-shadow: 0 1px 3px 0 rgba(85,84,89,.7);
 }
 
 @media (max-width: 575px){
