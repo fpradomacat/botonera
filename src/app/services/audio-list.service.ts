@@ -5,26 +5,26 @@ import { Sound } from '../classes/Sound';
 export class AudioListService {
 
   private eSolutions = [
-    new Sound('Marteeen', 'marteeen'),
-    new Sound('Invente!', 'invente'),
-    new Sound('Invente Román!', 'inventeRoman'),
-    new Sound('Caso cerrado 1!', 'yvo_casocerrado'),
-    new Sound('Caso cerrado 2!', 'yvo_casocerrado1'),
-    new Sound('He dicho!', 'yvo_hedicho'),
-    new Sound('Votamos?', 'votamos'),
-    new Sound('Nadamá', 'adam_nadama'),
-    new Sound('Chauchiques', 'adam_chau'),
+    new Sound('marteeen', 'Marteeen'),
+    new Sound('invente', 'Invente!'),
+    new Sound('inventeRoman', 'Invente Román!'),
+    new Sound('yvo_casocerrado', 'Caso cerrado 1!'),
+    new Sound('yvo_casocerrado1', 'Caso cerrado 2!'),
+    new Sound('yvo_hedicho', 'He dicho!'),
+    new Sound('votamos', 'Votamos?'),
+    new Sound('adam_nadama', 'Nadamá'),
+    new Sound('adam_chau', 'Chauchiques'),
   ];
 
   private biancho = [
-    new Sound('Anoder Birdei', 'agu_anoder_birdei'),
-    new Sound('Friendcito1', 'agu_friendcito'),
-    new Sound('Friendcito2', 'agu_friendcito1'),
-    new Sound('Ayyy Agustin', 'agu_ay_agustin'),
-    new Sound('Vida de mier', 'agu_vida_de_mier'),
-    new Sound('Qué ganas ..', 'agu_que_ganas'),
-    new Sound('Está rompido', 'agu_esta_rompido'),
-    new Sound('Boludo', 'agu_boludo'),
+    new Sound('agu_anoder_birdei', 'Anoder Birdei'),
+    new Sound('agu_friendcito', 'Friendcito1'),
+    new Sound('agu_friendcito1', 'Friendcito2'),
+    new Sound('agu_ay_agustin', 'Ayyy Agustin'),
+    new Sound('agu_vida_de_mier', 'Vida de mier'),
+    new Sound('agu_que_ganas', 'Qué ganas ..'),
+    new Sound('agu_esta_rompido', 'Está rompido'),
+    new Sound('agu_boludo', 'Boludo'),
   ];
 
   private classics = [

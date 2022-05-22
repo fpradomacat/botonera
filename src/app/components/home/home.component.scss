@@ -88,7 +88,7 @@
     transform: translate(4px, 4px);
   }
 
-  box-shadow: inset 3px 3px 0 0 #8C2022;
+  box-shadow: inset 3px 3px 0 0 #8C2022 !important;
 }
 
 .stop-button {
@@ -105,11 +105,7 @@
   cursor: pointer;
 
   &:active {
-    span {
-      transform: translate(4px, 4px);
-    }
-
-    box-shadow: inset 3px 3px 0 0 #8C2022;
+    @extend .active;
   }
 
   &:before,
