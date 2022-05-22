@@ -9,7 +9,11 @@
   </div>
 </div>
 
-<button type="button" class="stop-button d-flex justify-content-center" (click)="stopCurrentSound()">
+<button (click)="stopCurrentSound()"
+        type="button"
+        class="stop-button d-flex justify-content-center"
+        [class.active]="isStopButtonActive"
+>
   <span>STOP</span>
 </button>
 

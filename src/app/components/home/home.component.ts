@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { AudioListService } from '../../services/audio-list.service';
 import { SoundPlayerService } from '../../services/sound-player.service';
 
@@ -9,6 +9,8 @@ import { SoundPlayerService } from '../../services/sound-player.service';
 })
 
 export class HomeComponent {
+
+  isStopButtonActive = false;
 
   listaESolutions = this.sonidosService.eSolutionsSounds;
   clasicos = this.sonidosService.classicsSounds;
@@ -27,6 +29,16 @@ export class HomeComponent {
 
   public stopCurrentSound(): void {
     this.soundPlayerService.stopCurrentSound();
+  }
+
+  @HostListener('window:keydown.shift')
+  handleShiftKeydown() {
+    this.isStopButtonActive = true;
+  }
+
+  @HostListener('window:keyup.shift')
+  handleShiftKeyup() {
+    this.isStopButtonActive = false;
   }
 
   @HostListener('window:keydown', ['$event'])
