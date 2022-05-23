@@ -44,7 +44,7 @@ export class HomeComponent {
     if (event.shiftKey) {
       this.stopCurrentSound();
     } else {
-      const hotkey: Hotkey = {keyCode: event.key, isCtrlPressed: event.ctrlKey};
+      const hotkey: Hotkey = {key: event.key, isCtrlPressed: event.ctrlKey};
       this.soundPlayerService.playSoundByHotkey(hotkey);
     }
   }

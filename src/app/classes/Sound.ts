@@ -8,11 +8,11 @@ export class Sound {
 
   constructor(_source: string,
               _displayName: string,
-              _keyCode: string = '',
+              _key: string = '',
               _isCtrlPressed: boolean = false) {
     this._source = _source;
     this._displayName = _displayName;
-    this._hotkey = {keyCode: _keyCode, isCtrlPressed: _isCtrlPressed};
+    this._hotkey = {key: _key, isCtrlPressed: _isCtrlPressed};
   }
 
   get displayName() {
@@ -24,6 +24,7 @@ export class Sound {
   }
 
   isSameHotkey(hotkey: Hotkey) {
-    return this._hotkey.keyCode === hotkey.keyCode && this._hotkey.isCtrlPressed === hotkey.isCtrlPressed;
+    return this._hotkey.key === hotkey.key &&
+      this._hotkey.isCtrlPressed === hotkey.isCtrlPressed;
   }
 }
