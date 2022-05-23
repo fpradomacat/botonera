@@ -12,6 +12,7 @@ import { SoundPlayerService } from './services/sound-player.service';
 import { SectionComponent } from './components/shared/section/section.component';
 import { CommonModule } from '@angular/common';
 import { StopSoundButtonComponent } from './components/shared/stop-sound-button/stop-sound-button.component';
+import { HeaderComponent } from './components/shared/header/header.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { StopSoundButtonComponent } from './components/shared/stop-sound-button/
     HomeComponent,
     SoundCardComponent,
     SectionComponent,
-    StopSoundButtonComponent
+    StopSoundButtonComponent,
+    HeaderComponent
   ],
   imports: [
     CommonModule,

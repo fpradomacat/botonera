@@ -5,3 +5,10 @@
 * {
   font-family: 'Press Start 2P', cursive;
 }
+
+@media (max-width: 575px) {
+  .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
