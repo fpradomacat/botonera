@@ -1,4 +1,4 @@
 export interface Hotkey {
-  keyCode: string;
+  key: string;
   isCtrlPressed: boolean;
 }

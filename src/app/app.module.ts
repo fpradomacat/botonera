@@ -7,7 +7,7 @@ import { APP_ROUTING } from './app.routes';
 
 import { HomeComponent } from './components/home/home.component';
 import { SoundCardComponent } from './components/shared/sound-card/sound-card.component';
-import { AudioListService } from './services/audio-list.service';
+import { SoundListService } from './services/sound-list.service';
 import { SoundPlayerService } from './services/sound-player.service';
 
 @NgModule({
@@ -22,7 +22,7 @@ import { SoundPlayerService } from './services/sound-player.service';
     APP_ROUTING
   ],
   providers: [
-    AudioListService,
+    SoundListService,
     SoundPlayerService
   ],
   bootstrap: [

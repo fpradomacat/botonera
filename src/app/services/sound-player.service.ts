@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
+import { Hotkey } from '../classes/Hotkey';
 import { Sound } from '../classes/Sound';
+import { SoundListService } from './sound-list.service';
 
 @Injectable()
 export class SoundPlayerService {
   audio = new Audio();
 
-  constructor() {
+  constructor(private soundListService: SoundListService) {
   }
 
   public playSound(sound: Sound): void {
@@ -22,6 +24,13 @@ export class SoundPlayerService {
 
   public stopCurrentSound(): void {
     this.audio.pause();
+  }
+
+  public playSoundByHotkey(hotkey: Hotkey) {
+    const sound = this.soundListService.getSoundByHotkey(hotkey);
+    if(sound) {
+      this.playSound(sound);
+    }
   }
 
 }

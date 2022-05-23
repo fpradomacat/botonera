@@ -1,5 +1,6 @@
-import { Component, ElementRef, HostListener, OnInit, Renderer2, ViewChild } from '@angular/core';
-import { AudioListService } from '../../services/audio-list.service';
+import { Component, HostListener } from '@angular/core';
+import { Hotkey } from '../../classes/Hotkey';
+import { SoundListService } from '../../services/sound-list.service';
 import { SoundPlayerService } from '../../services/sound-player.service';
 
 @Component({
@@ -16,10 +17,7 @@ export class HomeComponent {
   clasicos = this.sonidosService.classicsSounds;
   biancho = this.sonidosService.bianchoSounds;
 
-  private hotKeys = this.sonidosService.hotkeys;
-  private combinedHotKeys = this.sonidosService.hotkeysWithCtrlPressed;
-
-  constructor(private sonidosService: AudioListService,
+  constructor(public sonidosService: SoundListService,
               private soundPlayerService: SoundPlayerService) {
   }
 
@@ -42,19 +40,12 @@ export class HomeComponent {
   }
 
   @HostListener('window:keydown', ['$event'])
-  handleKeyPressed($event: KeyboardEvent) {
-    if (this.isShiftKey($event)) {
+  handleKeyPressed(event: KeyboardEvent) {
+    if (event.shiftKey) {
       this.stopCurrentSound();
     } else {
-      if ($event.keyCode && $event.ctrlKey) {
-        this.playSoundBySource(`${this.combinedHotKeys[$event.keyCode]}`);
-      } else {
-        this.playSoundBySource(`${this.hotKeys[$event.keyCode]}`);
-      }
+      const hotkey: Hotkey = {keyCode: event.key, isCtrlPressed: event.ctrlKey};
+      this.soundPlayerService.playSoundByHotkey(hotkey);
     }
-  }
-
-  private isShiftKey($event: KeyboardEvent): boolean {
-    return ['ShiftLeft', 'ShiftRight'].includes($event.code);
   }
 }

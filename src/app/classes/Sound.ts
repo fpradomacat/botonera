@@ -22,4 +22,8 @@ export class Sound {
   get source() {
     return `../../assets/audio/${this._source}.mp3`;
   }
+
+  isSameHotkey(hotkey: Hotkey) {
+    return this._hotkey.keyCode === hotkey.keyCode && this._hotkey.isCtrlPressed === hotkey.isCtrlPressed;
+  }
 }
