@@ -1,5 +1,6 @@
 import { Component, HostListener } from '@angular/core';
 import { Hotkey } from '../../classes/Hotkey';
+import { Section } from '../../classes/Section';
 import { SoundListService } from '../../services/sound-list.service';
 import { SoundPlayerService } from '../../services/sound-player.service';
 
@@ -13,16 +14,10 @@ export class HomeComponent {
 
   isStopButtonActive = false;
 
-  listaESolutions = this.sonidosService.eSolutionsSounds;
-  clasicos = this.sonidosService.classicsSounds;
-  biancho = this.sonidosService.bianchoSounds;
+  sections: Section[] = this.sonidosService.getSoundsBySections();
 
   constructor(public sonidosService: SoundListService,
               private soundPlayerService: SoundPlayerService) {
-  }
-
-  private playSoundBySource(src: string): void {
-    this.soundPlayerService.playSoundBySource(src);
   }
 
   public stopCurrentSound(): void {

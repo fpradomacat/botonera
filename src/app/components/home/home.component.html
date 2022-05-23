@@ -12,41 +12,14 @@
 <button (click)="stopCurrentSound()"
         type="button"
         class="stop-button d-flex justify-content-center"
-        [class.active]="isStopButtonActive"
+        [class.stop-button-active]="isStopButtonActive"
 >
   <span>STOP</span>
 </button>
 
 <div class="container">
 
-  <div class="row section-container">
-    <div class="col-12">
-      <h3>ESolutions</h3> <small>Fila letra "A"</small>
-    </div>
-    <div class="col-12 col-sm-6 col-md-4 col-xl-2"
-         *ngFor="let sound of listaESolutions">
-      <app-sound-card [sound]="sound"></app-sound-card>
-    </div>
-  </div>
-
-  <div class="row section-container">
-    <div class="col-12">
-      <h3>Biancho</h3> <small>Fila letra "Z"</small>
-    </div>
-    <div class="col-12 col-sm-6 col-md-4 col-xl-2"
-         *ngFor="let sound of biancho">
-      <app-sound-card [sound]="sound"></app-sound-card>
-    </div>
-  </div>
-
-  <div class="row section-container">
-    <div class="col-12">
-      <h3>Clásicos</h3>  <small>Fila letra "W"</small>
-    </div>
-    <div class="col-12 col-sm-6 col-md-4 col-xl-2"
-         *ngFor="let sound of clasicos">
-      <app-sound-card [sound]="sound"></app-sound-card>
-    </div>
-  </div>
+  <app-section *ngFor="let section of this.sections"
+               [section]="section"></app-section>
 
 </div>

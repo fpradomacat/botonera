@@ -83,7 +83,7 @@
 }
 
 //TODO fix!!!
-.active {
+.stop-button-active {
   span {
     transform: translate(4px, 4px);
   }
@@ -105,7 +105,7 @@
   cursor: pointer;
 
   &:active {
-    @extend .active;
+    @extend .stop-button-active;
   }
 
   &:before,
@@ -130,16 +130,6 @@
     border-left: 6px black solid;
     border-right: 6px black solid;
   }
-}
-
-.section-container {
-  margin-bottom: 20px;
-  background-color: #eee;
-  border-radius: 2px;
-  padding: 20px;
-  -webkit-box-shadow: 0 1px 3px 0 rgba(85, 84, 89, .7);
-  -moz-box-shadow: 0 1px 3px 0 rgba(85, 84, 89, .7);
-  box-shadow: 0 1px 3px 0 rgba(85, 84, 89, .7);
 }
 
 @media (max-width: 575px) {

@@ -2,9 +2,9 @@ import { Hotkey } from './Hotkey';
 
 export class Sound {
 
-  readonly _source: string;
-  readonly _displayName: string;
-  readonly _hotkey: Hotkey;
+  private readonly _source: string;
+  private readonly _displayName: string;
+  private readonly _hotkey: Hotkey;
 
   constructor(_source: string,
               _displayName: string,

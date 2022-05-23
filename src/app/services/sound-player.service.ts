@@ -17,11 +17,6 @@ export class SoundPlayerService extends SoundPlayer {
     this.play();
   }
 
-  public playSoundBySource(source: string): void {
-    this.audio.src = '../../assets/audio/' + source + '.mp3';
-    this.play();
-  }
-
   public playSoundByHotkey(hotkey: Hotkey) {
     const sound = this.soundListService.getSoundByHotkey(hotkey);
     if (sound) {
