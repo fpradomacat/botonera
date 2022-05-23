@@ -7,8 +7,12 @@
 }
 
 .stop-button {
-  width: 30px;
-  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  min-height: 110px;
+  height: 35%;
   word-break: break-all;
   font-family: 'Press Start 2P', cursive;
   background: #E76E55;
