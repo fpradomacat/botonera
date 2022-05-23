@@ -12,7 +12,6 @@ import { SoundPlayerService } from '../../services/sound-player.service';
 
 export class HomeComponent {
 
-  isStopButtonActive = false;
 
   sections: Section[] = this.sonidosService.getSoundsBySections();
 
@@ -20,24 +19,10 @@ export class HomeComponent {
               private soundPlayerService: SoundPlayerService) {
   }
 
-  public stopCurrentSound(): void {
-    this.soundPlayerService.stopCurrentSound();
-  }
-
-  @HostListener('window:keydown.shift')
-  handleShiftKeydown() {
-    this.isStopButtonActive = true;
-  }
-
-  @HostListener('window:keyup.shift')
-  handleShiftKeyup() {
-    this.isStopButtonActive = false;
-  }
-
   @HostListener('window:keydown', ['$event'])
   handleKeyPressed(event: KeyboardEvent) {
     if (event.shiftKey) {
-      this.stopCurrentSound();
+      this.soundPlayerService.stopCurrentSound();
     } else {
       const hotkey: Hotkey = {key: event.key, isCtrlPressed: event.ctrlKey};
       this.soundPlayerService.playSoundByHotkey(hotkey);

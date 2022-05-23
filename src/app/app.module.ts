@@ -11,13 +11,15 @@ import { SoundListService } from './services/sound-list.service';
 import { SoundPlayerService } from './services/sound-player.service';
 import { SectionComponent } from './components/shared/section/section.component';
 import { CommonModule } from '@angular/common';
+import { StopSoundButtonComponent } from './components/shared/stop-sound-button/stop-sound-button.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     SoundCardComponent,
-    SectionComponent
+    SectionComponent,
+    StopSoundButtonComponent
   ],
   imports: [
     CommonModule,
